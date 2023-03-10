@@ -1,23 +1,16 @@
-import {
-    createBrowserRouter,
-    Route,
-    createRoutesFromElements,
-} from "react-router-dom";
-import Main from "../components/main/Dashboard";
-
+import { createBrowserRouter, Route, createRoutesFromElements } from "react-router-dom";
+import EmpDetail from "../components/main/EmpDetail";
+import Employees from "../components/main/Employees";
 import Layout from '../layout/Layout';
-
-// import { FORGOTPASSWORD, HOMEPAGE, LOGIN, REGISTRATION } from '../utils/constants/pages';
-
-
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
             <Route path="/" element={<Layout />}>
-                <Route path={'/'} element={<Main/>} />
+                <Route path={'/'} element={<Employees/>} />
                 <Route path={'/LOGIN'} element={'<Login />'} />
                 <Route path={'/REGISTRATION'} element={'<Registracion/>'}/>
+                <Route path='/employee/detail/:id' element={<EmpDetail />}></Route>
             </Route>
         </>
     )
