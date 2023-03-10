@@ -8,3 +8,64 @@
 #generalDiv{
     display: flex;
 }
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgba(211, 211, 211, 0.12);
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(241, 241, 241, 0);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.37);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(85, 85, 85, 0.63);
+}
+.LoginPage{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.SignIn{
+    width: 50vw;
+    height: 50vh;
+}
+.Moduls{
+    width: 20vw;
+    height: 85vh;
+    margin: 5px;
+    background-color: white;
+
+}
+.Main{
+    width: 80vw;
+    height: 70vh;
+    margin: 5px;
+    background-color: white;
+}
+.Home{
+    display: flex;
+    flex-direction: column;
+}
+.Header{
+    margin: 5px;
+    width: 99vw;
+    height: 10vh;
+    background-color: white;
+}
+.ModulBar{
+    max-height: 85vh;
+    overflow: auto;
+}
+a{
+    text-decoration:none;
+}
