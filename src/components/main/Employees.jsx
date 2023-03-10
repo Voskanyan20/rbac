@@ -19,7 +19,7 @@ const Employees = () => {
         })
     }, [])
     return (
-        <div className="container">
+        <div className="container" style={{marginTop: "10px"}}>
             <div className="card">
                 <div className="card-title">
                     <h2>Employees</h2>

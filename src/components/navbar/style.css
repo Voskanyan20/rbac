@@ -1,0 +1,13 @@
+#navbar{
+    /* background-color: silver; */
+    width: 300px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 7px 0;
+}
+/* .adminInfoDiv{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
