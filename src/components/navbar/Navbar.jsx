@@ -1,23 +1,14 @@
-import { ListItemButton, ListItemText } from '@mui/material'
 import * as React from 'react';
 import "./style.css"
-import HeaderModuleList from './HeaderModuleList';
-import HeaderParamLists from './HeaderParamLists';
+import NavbarModuleList from './NavbarModuleList';
 import { Link } from 'react-router-dom';
 
-export default function Header() {
+export default function Navbar() {
   return (
-    <header id='navbar'>
-        <div className='adminInfoHeader'>
-            <Link to={"/"}>
-              <ListItemButton>
-                <ListItemText primary="Employees" />
-              </ListItemButton>
-            </Link>
-
-            <HeaderModuleList/>
-            <HeaderParamLists/>
+    <nav id='navbar'>
+        <div>
+            <NavbarModuleList/>
         </div>
-    </header>
+    </nav>
   )
 }

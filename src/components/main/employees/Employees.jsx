@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 const Employees = () => {
     const [empdata, empdatachange] = useState(null);
     const navigate = useNavigate();
-
+    // const token = "Bearer"+ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsImlhdCI6MTY3ODQ0NjU1Mn0.vsg37gZ-pPRq4qDKrTg9mswSuZ3Ij1RjRBiJ9mafig4 
     const LoadDetail = (id) => {
-        navigate("/employee/detail/" + id);
+        navigate("/general/detail/" + id);
     }
 
     useEffect(() => {
@@ -18,6 +18,7 @@ const Employees = () => {
             console.log(err.message);
         })
     }, [])
+    console.log(empdata);
     return (
         <div className="container" style={{marginTop: "10px"}}>
             <div className="card">
@@ -61,3 +62,17 @@ const Employees = () => {
 }
 
 export default Employees;
+
+
+
+
+
+
+
+
+// .then((resp) => {
+//     console.warn("Result" , resp);
+//     localStorage.setItem('token' , JSON.stringify({
+//         token
+//     }))
+// })

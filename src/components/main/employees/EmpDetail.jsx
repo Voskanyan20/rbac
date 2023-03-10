@@ -15,10 +15,10 @@ const EmpDetail = () => {
         })
     }, []);
     return (
-        <div>
-               <div className="container">
+        <div style={{width: "83%"}}>
+               <div className="container" style={{margin: "8px 0 0 0",}}>
                 
-            <div className="card row" style={{ "textAlign": "left" }}>
+            <div className="card row" style={{ "textAlign": "center" }}>
                 <div className="card-title">
                     <h2>Employee Detail</h2>
                 </div>
@@ -26,19 +26,17 @@ const EmpDetail = () => {
                     
                 </div> */}
 
-           { empdata ?
-
+           { empdata &&
                 empdata.map((elem) => (
                     // console.log(elem);
                     <div className="card-row">
                         <h2>FirstName : {elem.firstName}</h2>
                         <h5>last is : {elem.lastName}</h5>
                         <h5>username is : {elem.username}</h5>
-                        <Link className="btn btn-danger" to="/">Back to Listing</Link>
+                        <Link className="btn btn-danger" to="/general/employees">Back to Listing</Link>
                     </div>
                 ))
-                
-            :console.log("bbbb")}
+            }
 
 
 
