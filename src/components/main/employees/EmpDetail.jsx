@@ -1,19 +1,36 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
 const EmpDetail = () => {
-    const [empdata, empdatachange] = useState([]);
+    // const [empdata, empdatachange] = useState([]);
     // console.log(empdata);
-    useEffect(() => {
-        fetch("http://localhost:8080/employees/").then((res) => {
-            return res.json();
-        }).then((resp) => {
-            empdatachange(resp);
-        }).catch((err) => {
-            console.log(err.message);
-        })
-    }, []);
+    // useEffect(() => {
+    //     fetch("http://localhost:3001/employees/").then((res) => {
+    //         return res.json();
+    //     }).then((resp) => {
+    //         empdatachange(resp);
+    //     }).catch((err) => {
+    //         console.log(err.message);
+    //     })
+    // }, []);
+    const empdata=[
+        {
+            "id": "1",
+            "firstName": "Tom",
+            "lastName": "Cruise"
+        },
+        {
+            "id": "2",
+            "firstName": "Maria",
+            "lastName": "Sharapova"
+        },
+        {
+            "id": "3",
+            "firstName": "James",
+            "lastName": "Bond"
+        }
+    ]
     return (
         <div style={{width: "83%"}}>
                <div className="container" style={{margin: "8px 0 0 0",}}>

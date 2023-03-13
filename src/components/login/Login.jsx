@@ -36,7 +36,7 @@ function Login() {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <Link to={"/general"}><Button  sx={{ width: 200, padding: 1, margin: 2 }} color="primary" variant="outlined">Button</Button></Link>
+                            <Link to={"/general/employees"}><Button  sx={{ width: 200, padding: 1, margin: 2 }} color="primary" variant="outlined">Button</Button></Link>
                         </Grid>
                     </Grid>
                 </Paper>
