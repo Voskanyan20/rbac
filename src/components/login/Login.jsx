@@ -8,6 +8,7 @@ function Login() {
     return (
         <div className="LoginPage">
             <div>
+                <h1 className={"loginText"} >LOGIN</h1>
                 <Box className="SignIn" >
                 <Paper>
                     <Grid container spacing={3} direction={'column'} justify={'center'} border={"blue"} borderRadius={"50px"} alignItems={'center'} >
@@ -18,7 +19,6 @@ function Login() {
                                 placeholder="username"
                                 type="text"
                                 variant="outlined"
-                                value={"values.email"}
                                 inputProps={{
                                 autoComplete: 'on'
                             }}/>

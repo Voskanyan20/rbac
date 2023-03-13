@@ -22,10 +22,6 @@ const EmpDetail = () => {
                 <div className="card-title">
                     <h2>Employee Detail</h2>
                 </div>
-                 {/* <div className="card-body">
-                    
-                </div> */}
-
            { empdata &&
                 empdata.map((elem) => (
                     // console.log(elem);

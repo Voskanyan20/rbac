@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {Box} from "@mui/material";
 
-const Employees = () => {
+const Modules = () => {
     const [empdata, empdatachange] = useState(null);
     const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ const Employees = () => {
     return (
         <div style={{display:"flex",flexDirection:"column",marginRight:"10px", marginTop:"10px",width:"100vw",height:"85vh"}}>
             <div className="card-title">
-                <h2>Clients</h2>
+                <h2>Modules</h2>
             </div>
             <Box sx={{border: 1, backgroundColor:"white",borderColor: 'primary.main', borderRadius:4, boxShadow:4,width:"100%",height:"100%"}}>
                 <Box sx={{margin:4}}>
@@ -64,4 +64,4 @@ const Employees = () => {
     );
 }
 
-export default Employees;
+export default Modules;

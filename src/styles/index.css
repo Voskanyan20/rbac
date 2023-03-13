@@ -5,6 +5,9 @@
     text-decoration: none;
     list-style: none;
 }
+body{
+    background-color: #86c0ed12!important;
+}
 #generalDiv{
     display: flex;
 }
@@ -12,9 +15,7 @@
     margin: 0;
     padding: 0;
 }
-body{
-    background-color: rgba(211, 211, 211, 0.12);
-}
+
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -36,8 +37,14 @@ body{
     align-items: center;
 }
 .SignIn{
-    width: 50vw;
+    width: 35vw;
     height: 50vh;
+}
+.loginText{
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    color: mediumblue;
 }
 .Moduls{
     width: 20vw;

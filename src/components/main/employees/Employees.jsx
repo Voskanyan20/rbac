@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {light} from "@mui/material/styles/createPalette";
+import {Box} from "@mui/material";
 
 const Employees = () => {
     const [empdata, empdatachange] = useState(null);
@@ -20,14 +22,15 @@ const Employees = () => {
     }, [])
     console.log(empdata);
     return (
-        <div className="container" style={{marginTop: "10px"}}>
-            <div className="card">
-                <div className="card-title">
-                    <h2>Employees</h2>
-                </div>
+        <div style={{display:"flex",flexDirection:"column",marginRight:"10px", marginTop:"10px",width:"100vw",height:"85vh"}}>
+            <div className="card-title">
+                <h2>Employees</h2>
+            </div>
+        <Box sx={{border: 1, backgroundColor:"white",borderColor: 'primary.main', borderRadius:4, boxShadow:4,width:"100%",height:"100%"}}>
+            <Box sx={{margin:4}}>
                 <div className="card-body">
-                    <table className="table table-bordered">
-                        <thead className="bg-dark text-white">
+                    <table className="table table-bordered" >
+                        <thead className="bg-primary text-white">
                             <tr>
                                 <td>ID</td>
                                 <td>username</td>
@@ -56,8 +59,9 @@ const Employees = () => {
 
                     </table>
                 </div>
+            </Box>
+        </Box>
             </div>
-        </div>
     );
 }
 
