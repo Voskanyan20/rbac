@@ -54,7 +54,6 @@ const empdata=[{
                                     </tr>
                                 ))
                             }
-
                             </tbody>
 
                         </table>
@@ -62,7 +61,6 @@ const empdata=[{
                 </Box>
             </Box>
         </div>
-
     );
 }
 
