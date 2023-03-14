@@ -1,41 +1,24 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {Box} from "@mui/material";
 
 const Permisions = () => {
-    // const [empdata, empdatachange] = useState(null);
+    const [empdata, empdatachange] = useState(null);
     const navigate = useNavigate();
 
     const LoadDetail = (id) => {
         navigate("/employee/detail/" + id);
     }
 
-    // useEffect(() => {
-    //     fetch("http://localhost:8080/employees").then((res) => {
-    //         return res.json();
-    //     }).then((resp) => {
-    //         empdatachange(resp);
-    //     }).catch((err) => {
-    //         console.log(err.message);
-    //     })
-    // }, [])
-    const empdata=[
-        {
-            "id": "1",
-            "firstName": "Tom",
-            "lastName": "Cruise"
-        },
-        {
-            "id": "2",
-            "firstName": "Maria",
-            "lastName": "Sharapova"
-        },
-        {
-            "id": "3",
-            "firstName": "James",
-            "lastName": "Bond"
-        }
-    ]
+    useEffect(() => {
+        fetch("http://localhost:8080/employees").then((res) => {
+            return res.json();
+        }).then((resp) => {
+            empdatachange(resp);
+        }).catch((err) => {
+            console.log(err.message);
+        })
+    }, [])
     return (
         <div style={{display:"flex",flexDirection:"column",marginRight:"10px", marginTop:"10px",width:"100vw",height:"85vh"}}>
             <div className="card-title">
