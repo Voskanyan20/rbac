@@ -1,26 +1,19 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import axios from "axios";
-let JWTTOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsImlhdCI6MTY3ODQ0NjU1Mn0.vsg37gZ-pPRq4qDKrTg9mswSuZ3Ij1RjRBiJ9mafig4' ;
+import { Link } from "react-router-dom";
+
 
 const EmpDetail = () => {
-    let empid = useParams();
     const [empdata, empdatachange] = useState([]);
-
+    // console.log(empdata);
     useEffect(() => {
-        const instance = axios.create({
-            baseURL: 'http://localhost:8080/',
-            timeout: 1000,
-            headers: {'Authorization': 'Bearer '+ JWTTOKEN}
-          });
-          instance.get(`/employees/${empid.id}`)
-          .then(resp => {
-              empdatachange(resp.data);
-          }).catch((err) => {
-                console.log(err.message);
-            })
+        fetch("http://localhost:8080/employees/").then((res) => {
+            return res.json();
+        }).then((resp) => {
+            empdatachange(resp);
+        }).catch((err) => {
+            console.log(err.message);
+        })
     }, []);
-
     return (
         <div style={{width: "83%"}}>
             <div className="container" style={{margin: "8px 0 0 0",}}>    
