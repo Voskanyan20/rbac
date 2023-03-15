@@ -15,7 +15,8 @@ const router = createBrowserRouter(
             <Route>
                 <Route  element={<PrivateRoutes />}>
                     <Route path="/general" element={<General />}>
-                        <Route path='employees' element={<Employees />} />
+                        <Route index={'employees'} element={<Employees />} />
+                        <Route path={'employees'} element={<Employees />} />
                         <Route path='detail/:id' element={<EmpDetail />}></Route>
                         <Route path="clients" element={<Client />} />
                         <Route path="modules" element={<Modules />} />
