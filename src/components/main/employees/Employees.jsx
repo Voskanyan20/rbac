@@ -14,7 +14,7 @@ const Employees = () => {
     useEffect(() => {
         const instance = axios.create({
             baseURL: 'http://localhost:8080/',
-            timeout: 1000,
+            timeout: 2000,
             headers: {'Authorization': 'Bearer '+JWTTOKEN}
         });
         instance.get('/employees/').then(resp => {

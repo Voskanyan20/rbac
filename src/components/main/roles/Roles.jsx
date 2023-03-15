@@ -10,15 +10,15 @@ const Roles = () => {
         navigate("/employee/detail/" + id);
     }
 
-    useEffect(() => {
-        fetch("http://localhost:8080/employees").then((res) => {
-            return res.json();
-        }).then((resp) => {
-            empdatachange(resp);
-        }).catch((err) => {
-            console.log(err.message);
-        })
-    }, [])
+    // useEffect(() => {
+    //     fetch("http://localhost:8080/employees").then((res) => {
+    //         return res.json();
+    //     }).then((resp) => {
+    //         empdatachange(resp);
+    //     }).catch((err) => {
+    //         console.log(err.message);
+    //     })
+    // }, [])
     return (
         <div style={{display:"flex",flexDirection:"column",marginRight:"10px", marginTop:"10px",width:"100vw",height:"85vh"}}>
             <div className="card-title">

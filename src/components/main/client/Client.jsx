@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {Box} from "@mui/material";
+import axios from "../../../utils/axios";
+let JWTTOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsImlhdCI6MTY3ODQ0NjU1Mn0.vsg37gZ-pPRq4qDKrTg9mswSuZ3Ij1RjRBiJ9mafig4' ;
+
 
 const Employees = () => {
-    const [empdata, empdatachange] = useState(null);
-    const navigate = useNavigate();
-
-    const LoadDetail = (id) => {
-        navigate("/employee/detail/" + id);
-    }
+    const [clientdata, clientdatachange] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:8080/employees").then((res) => {
-            return res.json();
-        }).then((resp) => {
-            empdatachange(resp);
+        const instance = axios.create({
+            baseURL: 'http://localhost:8080/',
+            timeout: 1000,
+            headers: {'Authorization': 'Bearer '+JWTTOKEN}
+        });
+        instance.get('/client/').then(resp => {
+            clientdatachange(resp.data);
         }).catch((err) => {
-            console.log(err.message);
-        })
-    }, [])
+                console.log(err.message);
+        });
+    }, []);
     return (
         <div style={{display:"flex",flexDirection:"column",marginRight:"10px", marginTop:"10px",width:"100vw",height:"85vh"}}>
             <div className="card-title">
@@ -31,30 +31,20 @@ const Employees = () => {
                             <thead className="bg-primary text-white">
                             <tr>
                                 <td>ID</td>
-                                <td>username</td>
-                                <td>firstName</td>
-                                <td>lastname</td>
-                                <td>Param</td>
+                                <td>Title</td>
                             </tr>
                             </thead>
                             <tbody>
 
-                            {empdata &&
-                                empdata.map(item => (
+                            {clientdata &&
+                                clientdata.map(item => (
                                     <tr key={item.id}>
                                         <td>{item.id}</td>
-                                        <td>{item.username}</td>
-                                        <td>{item.firstName}</td>
-                                        <td>{item.lastName}</td>
-                                        <td>
-                                            <a onClick={() => { LoadDetail(item.id) }} className="btn btn-primary">Details</a>
-                                        </td>
+                                        <td>{item.title}</td>
                                     </tr>
                                 ))
                             }
-
                             </tbody>
-
                         </table>
                     </div>
                 </Box>
