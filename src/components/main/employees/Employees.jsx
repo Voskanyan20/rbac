@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import React, {useMemo} from 'react';
 import { useNavigate } from "react-router-dom";
-import {Box} from "@mui/material";
+import {Box, Button, IconButton, Tooltip} from "@mui/material";
 import axios from "axios";
-let JWTTOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsImlhdCI6MTY3ODQ0NjU1Mn0.vsg37gZ-pPRq4qDKrTg9mswSuZ3Ij1RjRBiJ9mafig4' ;
+import {useEffect, useState} from "react";
+import MaterialReactTable from 'material-react-table';
+let JWTTOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsImlhdCI6MTY3ODQ0NjU1Mn0.vsg37gZ-pPRq4qDKrTg9mswSuZ3Ij1RjRBiJ9mafig4';
 
 const Employees = () => {
+
     const [empdata, empdatachange] = useState(null);
     const navigate = useNavigate();
     const LoadDetail = (id) => {
@@ -14,63 +17,49 @@ const Employees = () => {
     useEffect(() => {
         const instance = axios.create({
             baseURL: 'http://localhost:8080/',
-            timeout: 2000,
+            timeout: 1000,
             headers: {'Authorization': 'Bearer '+JWTTOKEN}
         });
-        instance.get('/employees/').then(resp => {
-            empdatachange(resp.data);
-        }).catch((err) => {
-                console.log(err.message);
+        instance.get('/employees/')
+            .then(resp => {
+                empdatachange(resp);
+            }).catch((err) => {
+            console.log(err.message);
         });
     }, []);
-    console.log(empdata);
-    return (
-        <div style={{display:"flex",flexDirection:"column",marginRight:"10px", marginTop:"10px",width:"100vw",height:"85vh"}}>
-            <div className="card-title">
-                <h2>Employees</h2>
-            </div>
-            <Box sx={{border: 1, backgroundColor:"white",borderColor: 'primary.main', borderRadius:4, boxShadow:4,width:"100%",height:"100%"}}>
-                <Box sx={{margin:4}}>
-                    <div className="card-body">
-                        <table className="table table-bordered" >
-                            <thead className="bg-primary text-white">
-                                <tr>
-                                    <td>ID</td>
-                                    <td>username</td>
-                                    <td>firstName</td>
-                                    <td>lastname</td>
-                                    <td>Param</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {empdata &&
-                                    empdata.map(item => (
-                                        <tr key={item.id}>
-                                            <td>{item.id}</td>
-                                            <td>{item.username}</td>
-                                            <td>{item.firstName}</td>
-                                            <td>{item.lastName}</td>
-                                            <td>
-                                                <a onClick={() => { LoadDetail(item.id) }} className="btn btn-primary">Details</a>
-                                            </td>
-                                        </tr>
-                                    ))
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </Box>
-            </Box>
-        </div>
+
+
+    const columns = useMemo(
+        () => [
+            {
+                accessorKey: 'id',
+                header: 'ID',
+            },
+            {
+                accessorKey: 'username',
+                header: 'Username',
+            },
+            {
+                accessorKey: 'firstName',
+                header: 'FirstName',
+            },
+            {
+                accessorKey: 'lastName',
+                header: 'Lastname',
+            },
+
+        ],
+        [],
     );
-}
+    if(empdata===null){
+        return null
+    }
+    return <MaterialReactTable columns={columns} data={empdata.data}
+    />;
+
+};
 
 export default Employees;
-
-
-
-
-
 
 
 

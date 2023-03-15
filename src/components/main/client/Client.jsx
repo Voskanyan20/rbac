@@ -50,7 +50,6 @@ const Employees = () => {
                 </Box>
             </Box>
         </div>
-
     );
 }
 
