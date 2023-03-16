@@ -103,7 +103,7 @@ import { Delete, Edit } from '@mui/icons-material';
 import axios from 'axios';
 let JWTTOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsImlhdCI6MTY3ODQ0NjU1Mn0.vsg37gZ-pPRq4qDKrTg9mswSuZ3Ij1RjRBiJ9mafig4' ;
 
-const Example = () => {
+const Roles = () => {
     const [empdata, empdatachange] = useState(null);
     useEffect(() => {
         const instance = axios.create({
@@ -320,4 +320,4 @@ const validateEmail = (email) =>
     );
 const validateAge = (age) => age >= 18 && age <= 50;
 
-export default Example;
+export default Roles;
