@@ -27,7 +27,7 @@ const EmpDetail = () => {
             <div className="card-title">
                 <h2>Employee Detail</h2>
             </div>
-            <Box sx={{border: 1, backgroundColor:"white",borderColor: 'primary.main', borderRadius:4, boxShadow:4,width:"100%",height:"100%"}}>
+            <Box sx={{border: 1, backgroundColor:"white",borderColor: 'primary.main', borderRadius:1, boxShadow:1,width:"100%",height:"100%"}}>
                 <Box sx={{margin:4}}>
                     <div className="card-body">
                         {empdata &&
