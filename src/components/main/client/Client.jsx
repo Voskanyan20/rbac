@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {Box, Button} from "@mui/material";
-import axios from "../../../utils/axios";
+import axios from "axios";
 let JWTTOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsImlhdCI6MTY3ODQ0NjU1Mn0.vsg37gZ-pPRq4qDKrTg9mswSuZ3Ij1RjRBiJ9mafig4' ;
 
 
