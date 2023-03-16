@@ -3,6 +3,8 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import MaterialReactTable from 'material-react-table';
+import {Box} from "@mui/material";
+
 let JWTTOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsImlhdCI6MTY3ODQ0NjU1Mn0.vsg37gZ-pPRq4qDKrTg9mswSuZ3Ij1RjRBiJ9mafig4';
 
 const Employees = () => {
@@ -50,18 +52,45 @@ const Employees = () => {
         ],
         [],
     );
-    if(empdata===null){
+    if (empdata === null) {
         return null
     }
-    return <MaterialReactTable
-        data={empdata.data}
-        columns={columns}
-    />
+    return (
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            marginRight: "10px",
+            marginTop: "10px",
+            width: "100vw",
+            height: "85vh"
+        }}>
+            <Box sx={{
+                border: 1,
+                backgroundColor: "white",
+                borderColor: 'primary.main',
+                borderRadius: 1,
+                boxShadow: 1,
+                width: "100%",
+                height: "100%"
+            }}>
+                <MaterialReactTable
+                    data={empdata.data}
+                    columns={columns}
+                    muiTablePaperProps={{
+                        elevation: 0,
+                        sx: {
+                            margin:"10px !important",
+                            borderRadius: '14px !important',
+                        },
+                    }}
+                />
+            </Box>
+        </div>
+    )
 
 };
 
 export default Employees;
-
 
 
 // .then((resp) => {

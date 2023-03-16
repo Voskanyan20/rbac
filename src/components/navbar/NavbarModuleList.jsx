@@ -10,7 +10,7 @@ export default function HeaderModuleList() {
                 width: '100%',
                 maxWidth: 360,
                 backgroundColor: 'background.paper',
-                borderRadius: 4,
+                borderRadius: 1,
                 borderColor: "inherit"
             }} component="nav">
                 <Link className="btnStyle" to={"employees"}>
