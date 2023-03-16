@@ -31,10 +31,9 @@ const Permisions = () => {
                             <thead className="bg-primary text-white">
                             <tr>
                                 <td>ID</td>
-                                <td>username</td>
-                                <td>firstName</td>
-                                <td>lastname</td>
-                                <td>Param</td>
+                                <td>Title</td>
+                                <td>Module Title</td>
+                                <td>Params</td>
                             </tr>
                             </thead>
                             <tbody>
