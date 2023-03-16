@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {Box} from "@mui/material";
+import {Box, Button} from "@mui/material";
 
 const Roles = () => {
     const [empdata, empdatachange] = useState(null);
@@ -10,19 +10,20 @@ const Roles = () => {
         navigate("/employee/detail/" + id);
     }
 
-    useEffect(() => {
-        fetch("http://localhost:8080/employees").then((res) => {
-            return res.json();
-        }).then((resp) => {
-            empdatachange(resp);
-        }).catch((err) => {
-            console.log(err.message);
-        })
-    }, [])
+    // useEffect(() => {
+    //     fetch("http://localhost:8080/employees").then((res) => {
+    //         return res.json();
+    //     }).then((resp) => {
+    //         empdatachange(resp);
+    //     }).catch((err) => {
+    //         console.log(err.message);
+    //     })
+    // }, [])
     return (
         <div style={{display:"flex",flexDirection:"column",marginRight:"10px", marginTop:"10px",width:"100vw",height:"85vh"}}>
             <div className="card-title">
                 <h2>Roles</h2>
+                <Button>Add</Button>
             </div>
             <Box sx={{border: 1, backgroundColor:"white",borderColor: 'primary.main', borderRadius:4, boxShadow:4,width:"100%",height:"100%"}}>
                 <Box sx={{margin:4}}>
@@ -31,15 +32,21 @@ const Roles = () => {
                             <thead className="bg-primary text-white">
                             <tr>
                                 <td>ID</td>
-                                <td>username</td>
-                                <td>firstName</td>
-                                <td>lastname</td>
-                                <td>Param</td>
-                            </tr>
+                                <td>title</td>
+                                <td>Permissions</td>
+                                <td>Params</td>                            </tr>
                             </thead>
                             <tbody>
-
-                            {empdata &&
+                                <tr>
+                                    <td>1</td>
+                                    <td>Engineer</td>
+                                    <td>from array [updatemodule , deletebutton , .....]</td>
+                                    <td>
+                                        <Button>Edit</Button>
+                                        <Button>Delete</Button>
+                                    </td>
+                                </tr>
+                            {/* {empdata &&
                                 empdata.map(item => (
                                     <tr key={item.id}>
                                         <td>{item.id}</td>
@@ -51,7 +58,7 @@ const Roles = () => {
                                         </td>
                                     </tr>
                                 ))
-                            }
+                            } */}
 
                             </tbody>
 

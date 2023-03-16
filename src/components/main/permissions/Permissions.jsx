@@ -39,7 +39,7 @@ const Permisions = () => {
                             </thead>
                             <tbody>
 
-                            {empdata &&
+                            {/* {empdata &&
                                 empdata.map(item => (
                                     <tr key={item.id}>
                                         <td>{item.id}</td>
@@ -51,7 +51,7 @@ const Permisions = () => {
                                         </td>
                                     </tr>
                                 ))
-                            }
+                            } */}
 
                             </tbody>
 
