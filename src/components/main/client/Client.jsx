@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Box} from "@mui/material";
+import {Box, Button} from "@mui/material";
 import axios from "../../../utils/axios";
 let JWTTOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsImlhdCI6MTY3ODQ0NjU1Mn0.vsg37gZ-pPRq4qDKrTg9mswSuZ3Ij1RjRBiJ9mafig4' ;
 
@@ -23,6 +23,7 @@ const Employees = () => {
         <div style={{display:"flex",flexDirection:"column",marginRight:"10px", marginTop:"10px",width:"100vw",height:"85vh"}}>
             <div className="card-title">
                 <h2>Clients</h2>
+                <Button>Add</Button>
             </div>
             <Box sx={{border: 1, backgroundColor:"white",borderColor: 'primary.main', borderRadius:4, boxShadow:4,width:"100%",height:"100%"}}>
                 <Box sx={{margin:4}}>
@@ -32,6 +33,7 @@ const Employees = () => {
                             <tr>
                                 <td>ID</td>
                                 <td>Title</td>
+                                <td>Params</td>
                             </tr>
                             </thead>
                             <tbody>
@@ -41,6 +43,10 @@ const Employees = () => {
                                     <tr key={item.id}>
                                         <td>{item.id}</td>
                                         <td>{item.title}</td>
+                                        <td>
+                                            <Button>Delete</Button>
+                                            <Button>Update</Button>
+                                        </td>
                                     </tr>
                                 ))
                             }
