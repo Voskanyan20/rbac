@@ -1,81 +1,65 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { FormControl, Input, InputLabel, MenuItem, NativeSelect, Select } from '@mui/material';
+import { Button, Input, Modal , Select, Space } from 'antd';
+// import { Option } from 'antd/es/mentions';
+// import { Option } from 'antd/es/mentions';
+// import axios from 'axios';
+import { useState } from 'react';
+// let JWTTOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbiIsImlhdCI6MTY3ODQ0NjU1Mn0.vsg37gZ-pPRq4qDKrTg9mswSuZ3Ij1RjRBiJ9mafig4' ;
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
 
-export default function AddModule() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
-  return (
-    <div>
-      <Button onClick={handleOpen}>Add</Button>
-      <Modal
-        keepMounted
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="keep-mounted-modal-title"
-        aria-describedby="keep-mounted-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
-            <Input style={{marginBottom : "15px"}} placeholder='Title' type='string' />
-            {/* <FormControl> */}
-              <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                Parent Module
-              </InputLabel>
-              <NativeSelect
-              style={{marginBottom : "15px"}}
-                defaultValue={30}
-                inputProps={{
-                  name: 'age',
-                  id: 'uncontrolled-native',
-                }}
-              >
-                <option value={10}>Ten</option>
-                <option value={20}>Twenty</option>
-                <option value={30}>Thirty</option>
-              </NativeSelect>
-            {/* </FormControl> */}
-
-            {/* <FormControl> */}
-              <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                Clients
-              </InputLabel>
-              <NativeSelect
-                defaultValue={30}
-                inputProps={{
-                  name: 'age',
-                  id: 'uncontrolled-native',
-                }}
-              >
-                <option value={10}>Ten</option>
-                <option value={20}>Twenty</option>
-                <option value={30}>Thirty</option>
-              </NativeSelect>
-            {/* </FormControl> */}
-          </Typography>
-          <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-            <Button>Save</Button>
-            <Button>Cancel</Button>
-          </Typography>
-        </Box>
-      </Modal>
-    </div>
-  );
+const AddModule = () => {
+  // const [options, setOptions] = useState([]);
+  const [open, setOpen] = useState(false);
+  const handleChange = (value) => {
+    console.log(`Selected: ${value}`);
+  };
+  const options = [];
+for (let i = 0; i < 10; i++) {
+  options.push({
+    value: "sdfsdf",
+    label: "sdfsf",
+  });
 }
+  return (
+    <>
+      <Button type="primary" onClick={() => setOpen(true)}>
+        Add
+      </Button>
+      <Modal
+        title="Add Module"
+        centered
+        open={open}
+        onOk={() => setOpen(false)}
+        onCancel={() => setOpen(false)}
+        width={1000}
+      >
+        <Input placeholder="Module Title" />
+        <Space
+        direction="vertical"
+        style={{
+          width: '100%',
+        }}
+      >
+        <Select
+          defaultValue="Parent Module"
+          onChange={handleChange}
+          style={{
+            width: 200,
+          }}
+          options={options}
+        />
+
+        <Select
+          defaultValue="Client"
+          onChange={handleChange}
+          style={{
+            width: 200,
+          }}
+          options={options}
+        />
+      </Space>
+      </Modal>
+    </>
+  );
+};
+export default AddModule;
